@@ -26,8 +26,6 @@ def diff_similarity(text1, text2):
         matcher = difflib.SequenceMatcher(None, text1, text2)
         return matcher.ratio()
 
-
-    #思路是把两个方法得出的结果取平均值
 def test1():
     file1 = 'D:\测试文本\orig.txt'
     file2 = 'D:\测试文本\orig_0.8_add.txt'
@@ -139,6 +137,15 @@ def test9():
     with open(result, 'a') as f:
         f.write('相似度：{:.2f}\n'.format(similarity))
 
+def test10():
+    text1 = "这是一句话，一句没什么意义的话，但是可以用作测试，验证此程序的可行性。 "
+    text2 = "，，，。 "
+    result = 'D:/result.txt'
+    similarity1 = cos_similarity(text1, text2)
+    similarity2 = diff_similarity(text1, text2)
+    similarity = (similarity1 + similarity2) / 2
+    with open(result, 'a') as f:
+        f.write('相似度：{:.2f}\n'.format(similarity))
 
 def main():
    test1()
@@ -150,6 +157,7 @@ def main():
    test7()
    test8()
    test9()
+   test10()
 
 if __name__ == '__main__':
   main()
