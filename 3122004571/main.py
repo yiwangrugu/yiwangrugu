@@ -26,6 +26,8 @@ def diff_similarity(text1, text2):
         matcher = difflib.SequenceMatcher(None, text1, text2)
         return matcher.ratio()
 
+
+    #思路是把两个方法得出的结果取平均值
 def test1():
     file1 = 'D:\测试文本\orig.txt'
     file2 = 'D:\测试文本\orig_0.8_add.txt'
